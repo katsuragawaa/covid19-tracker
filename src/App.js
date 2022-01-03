@@ -9,6 +9,12 @@ class App extends React.Component {
   // class based component for easily fetch data on mount
   state = {
     data: {},
+    country: '',
+  };
+
+  handleCountryChange = async (country) => {
+    // this.setState
+    console.log(country);
   };
 
   async componentDidMount() {
@@ -23,7 +29,7 @@ class App extends React.Component {
     return (
       <div className={styles.container}>
         <Cards data={data} />
-        <CountryPicker />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart />
       </div>
     );
