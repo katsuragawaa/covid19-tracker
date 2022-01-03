@@ -9,7 +9,13 @@ export const fetchData = async () => {
     } = await axios.get(url);
 
     return { confirmed, recovered, deaths, lastUpdate };
-  } catch (err) {
-    return err;
-  }
+  } catch (err) {}
+};
+
+export const fetchDailyData = async () => {
+  try {
+    const { data } = await axios.get(`${url}/daily`);
+    
+    return data
+  } catch (err) {}
 };
